@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const taskRoutes = require('./routes/taskRoutes');
 const authRoutes = require('./routes/authRoutes');
-const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -15,7 +14,6 @@ app.use(cors({
 
 // Body parser
 app.use(express.json());
-app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 // Health check
