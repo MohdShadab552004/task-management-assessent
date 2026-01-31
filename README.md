@@ -2,7 +2,7 @@
 
 A full-stack Task Management Web Application built with React, Shadcn UI, Node.js, Express, MongoDB, and Redis for the Global Trend Full Stack Development Internship Assessment.
 
-## 🚀 Features
+##  Features
 
 - **Authentication**: Secure JWT-based authentication (Login, Register, Forgot/Reset Password)
 - **Protected Routes**: Secure access to task management features
@@ -14,7 +14,7 @@ A full-stack Task Management Web Application built with React, Shadcn UI, Node.j
 - **Redis Caching**: Improved performance with cache layer
 - **Status Filtering**: Filter tasks by pending, in-progress, or completed
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 - React 18 + Vite
@@ -33,7 +33,7 @@ A full-stack Task Management Web Application built with React, Shadcn UI, Node.j
 - express-validator
 - Nodemailer (Email service)
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 global-assessment/
@@ -64,13 +64,21 @@ global-assessment/
 └── README.md
 ```
 
-## 🔧 Setup Instructions
+##  Setup Instructions
 
 ### Prerequisites
 
 - Node.js 18+
 - MongoDB (local or Atlas)
 - Redis (optional, for caching)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/MohdShadab552004/task-management-assessent.git
+   cd task-management-assessent
+   ```
 
 ### Backend Setup
 
@@ -127,7 +135,7 @@ global-assessment/
 
    The app will be available at `http://localhost:5173`
 
-## 📡 API Endpoints
+##  API Endpoints
 
 ### Authentication
 | Method | Endpoint | Description |
@@ -151,7 +159,7 @@ global-assessment/
 |--------|----------|-------------|
 | GET | /health | Health check |
 
-## ✅ Validation Rules
+##  Validation Rules
 
 ### Task Fields
 
@@ -161,7 +169,7 @@ global-assessment/
 | description | string | No | Max 500 characters |
 | status | enum | No | pending, in-progress, completed |
 
-## 🏗️ Architecture
+##  Architecture
 
 - **Frontend**: Component-based architecture with separated logic (Hooks) and Global State (Context API for Auth).
 - **Backend**: MVC pattern with controllers, routes, and models.
@@ -169,6 +177,6 @@ global-assessment/
 - **Validation**: Dual validation on both frontend (Zod) and backend (express-validator).
 - **Caching**: Redis caching layer for task lists to improve read performance.
 
-## 📝 Author
+##  Author
 
 Built for Global Trend Full Stack Development Internship Assessment
