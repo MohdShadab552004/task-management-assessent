@@ -9,6 +9,7 @@ const resetPasswordTemplate = require('../templates/resetPassword');
 exports.register = async (req, res, next) => {
     try {
         const { name, email, password } = req.body;
+        console.log(name, email, password);
 
         // Check if user already exists
         const userExists = await User.findOne({ email });
@@ -24,6 +25,8 @@ exports.register = async (req, res, next) => {
             email,
             password
         });
+
+        console.log(user);
 
         // Send welcome email
         try {
