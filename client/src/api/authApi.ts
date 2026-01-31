@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { z } from "zod";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api/auth";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 const api = axios.create({
     baseURL: API_URL,
@@ -49,7 +49,7 @@ export interface AuthResponse {
 
 export const login = async (data: LoginData): Promise<AuthResponse> => {
     try {
-        const response = await api.post<AuthResponse>("/login", data);
+        const response = await api.post<AuthResponse>("/auth/login", data);
         if (response.data.token) {
             localStorage.setItem("token", response.data.token);
         }
@@ -64,7 +64,7 @@ export const login = async (data: LoginData): Promise<AuthResponse> => {
 
 export const register = async (data: RegisterData): Promise<AuthResponse> => {
     try {
-        const response = await api.post<AuthResponse>("/register", data);
+        const response = await api.post<AuthResponse>("/auth/register", data);
         if (response.data.token) {
             localStorage.setItem("token", response.data.token);
         }
@@ -83,7 +83,7 @@ export const logout = () => {
 
 export const getCurrentUser = async () => {
     try {
-        const response = await api.get<{ success: boolean; data: any }>("/me");
+        const response = await api.get<{ success: boolean; data: any }>("/auth/me");
         console.log(response);
         return response.data.data;
     } catch (error) {
@@ -98,7 +98,7 @@ export const getCurrentUser = async () => {
 
 export const forgotPassword = async (data: ForgotPasswordData): Promise<AuthResponse> => {
     try {
-        const response = await api.post<AuthResponse>("/forgotpassword", data);
+        const response = await api.post<AuthResponse>("/auth/forgotpassword", data);
         return response.data;
     } catch (error) {
         if (error instanceof AxiosError && error.response) {
@@ -110,7 +110,7 @@ export const forgotPassword = async (data: ForgotPasswordData): Promise<AuthResp
 
 export const resetPassword = async (token: string, data: ResetPasswordData): Promise<AuthResponse> => {
     try {
-        const response = await api.put<AuthResponse>(`/resetpassword/${token}`, {
+        const response = await api.put<AuthResponse>(`/auth/resetpassword/${token}`, {
             password: data.password
         });
         if (response.data.token) {
